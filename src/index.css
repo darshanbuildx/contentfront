@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for Kanban columns */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+/* Dark mode scrollbar */
+.dark .overflow-y-auto {
+  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5);
+}
+
+/* Toast animations */
+@keyframes custom-enter {
+  0% {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes custom-exit {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.toast-container > * {
+  pointer-events: auto;
+}
+
+.toast-container > *:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* Prevent text selection during drag */
+[data-column-id] * {
+  user-select: none;
+}
+
+/* Rest of the existing styles... */
